@@ -3,7 +3,7 @@ import re
 
 class getWan:
 	def __init__(self):
-		self._http = urllib.urlopen('http://www.whatismyip.com/automation/n09230945.asp')
+		self._http = urllib.urlopen('http://automation.whatismyip.com/n09230945.asp')
 		self._responseRead = False
 		self._lastIpRead = False
 		pass
