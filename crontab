@@ -1,0 +1,2 @@
+0,10,20,30,40,50 * * * * /home/rbitel/getWanIP/RunDynDns.py
+0 0 1,15 * * /home/rbitel/getWanIP/RunDynDns.py --force
