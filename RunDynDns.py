@@ -32,7 +32,7 @@ for o, a in opts:
 	else:
 		assert False, "unhandled option"
 
-log_file = open('./RunDynDns_log.txt','a')
+log_file = open('/var/log/RunDynDns_log.txt','a')
 
 getIp = getWan()
 
