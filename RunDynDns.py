@@ -6,7 +6,10 @@ from setDynDns import setDynDns
 from get_wan import getWan
 
 def usage():
-	print "RunDynDns.py\n\t-h\t--help\t\tdisplays this message\n\t-v\t--verbose\tdisplays verbose messages\n\t-f\t--force\t\tforces update of dyndns"
+	print """RunDynDns.py
+	-h	--help		displays this message
+	-v	--verbose	displays verbose messages
+	-f	--force		forces update of dyndns"""
 
 try:
 	opts, args = getopt.getopt(sys.argv[1:], "hvf", ["help", "verbose", "force"])
