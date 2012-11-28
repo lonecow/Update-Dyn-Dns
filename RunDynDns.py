@@ -2,6 +2,7 @@
 
 import getopt
 import sys
+import datetime
 from setDynDns import setDynDns
 from get_wan import getWan
 
@@ -35,16 +36,18 @@ log_file = open('./RunDynDns_log.txt','a')
 
 getIp = getWan()
 
+now = datetime.datetime.now()
+
 if (getIp.isIpAddressValid() and getIp.hasIpAddressChanged()) or Force == True:
 	if getIp.isIpAddressValid() and not Force:
 		update = setDynDns(getIp.getIpAddress())
-		log_file.write("Sending Out Change in IP OLD[%s]:New[%s] Ret Code [%s]\n" % (getIp.getLastIPAddress(), getIp.getIpAddress(), update.getReturnCode()))
+		log_file.write("[%s] Sending Out Change in IP OLD[%s]:New[%s] Ret Code [%s]\n" % (now, getIp.getLastIPAddress(), getIp.getIpAddress(), update.getReturnCode()))
 	elif getIp.isIpAddressValid() and Force:
 		update = setDynDns(getIp.getIpAddress())
-		log_file.write("Sending Out Change in IP OLD[%s]:New[%s] Ret Code [%s] By Force\n" % (getIp.getLastIPAddress(), getIp.getIpAddress(), update.getReturnCode()))
+		log_file.write("[%s] Sending Out Change in IP OLD[%s]:New[%s] Ret Code [%s] By Force\n" % (now, getIp.getLastIPAddress(), getIp.getIpAddress(), update.getReturnCode()))
 	elif Force:
 		update = setDynDns(getIp.getLastIPAddress())
-		log_file.write("Sending Out Change in IP OLD[%s]:New[%s] Ret Code [%s] By Force\n" % (getIp.getLastIPAddress(), getIp.getIpAddress(), update.getReturnCode()))
+		log_file.write("[%s] Sending Out Change in IP OLD[%s]:New[%s] Ret Code [%s] By Force\n" % (now, getIp.getLastIPAddress(), getIp.getIpAddress(), update.getReturnCode()))
 		
 
 log_file.close()
