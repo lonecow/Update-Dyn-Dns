@@ -1,2 +1,0 @@
-0,10,20,30,40,50 * * * * /home/rbitel/Update-Dyn-Dns/RunDynDns.py
-0 0 1,15 * * /home/rbitel/Update-Dyn-Dns/RunDynDns.py --force
