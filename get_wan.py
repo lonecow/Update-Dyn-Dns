@@ -3,7 +3,7 @@ import re
 
 class getWan:
 	def __init__(self):
-		self._http = urllib.urlopen('http://automation.whatismyip.com/n09230945.asp')
+		self._http = urllib.urlopen('http://checkip.dyndns.org')
 		self._responseRead = False
 		self._lastIpRead = False
 		pass
@@ -29,6 +29,11 @@ class getWan:
 
 	def isIpAddressValid(self):
 		self._getResponse()
+		try:
+			self._retip = self._retip.split('Current IP Address: ')[1]
+			self._retip = self._retip.split('</body>')[0]
+		except:
+			pass
 		ip_regex = re.compile("(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)")
 		return None != ip_regex.match(self._retip)
 
